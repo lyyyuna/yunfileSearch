@@ -36,7 +36,7 @@
                                 OptionsItemTemplate="{StaticResource HamburgerMenuItem}"
                                 ItemClick="HamburgerMenu_OnItemClick"
                                 OptionsItemClick="HamburgerMenu_OnOptionsItemClick"
-                                OpenPaneLength="240"
+                                OpenPaneLength="160"
                                 DisplayMode="CompactInline"
                                 CompactPaneLength="48"
                                 HamburgerHeight="48"
@@ -45,6 +45,8 @@
             <!--  Items  -->
             <controls:HamburgerMenu.ItemsSource>
                 <controls:HamburgerMenuItemCollection>
+                    <controls:HamburgerMenuGlyphItem Glyph="&#xE12B;"
+                                                     Label="网盘搜索" />
                 </controls:HamburgerMenuItemCollection>
             </controls:HamburgerMenu.ItemsSource>
 

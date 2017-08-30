@@ -31,12 +31,12 @@ namespace yunfileSearch
 
         private void HamburgerMenu_OnItemClick(object sender, ItemClickEventArgs e)
         {
-
+            contentFrame.Navigate(typeof(Views.SearchPage));
         }
 
         private void HamburgerMenu_OnOptionsItemClick(object sender, ItemClickEventArgs e)
         {
-
+            contentFrame.Navigate(typeof(Views.About));
         }
     }
 

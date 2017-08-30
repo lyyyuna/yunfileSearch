@@ -6,10 +6,11 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-          Margin="10">
+    <Grid Background="LightGray">
+
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="7*"/>
@@ -18,16 +19,11 @@
         <StackPanel Orientation="Horizontal"
                     HorizontalAlignment="Center"
                     Margin="20">
-            <TextBox Name="SearchTextBox" 
-                     Height="48" 
+
+            <AutoSuggestBox Name="SearchAutoSuggestBox" 
                      Width="400"
-                     FontSize="24"
-                     PlaceholderText="搜索" />
-            <Button Name="SearchButton" 
-                    FontFamily="Segoe MDL2 Assets"
-                    FontSize="36" 
-                    Content="&#xE1A3;" 
-                    Click="SearchButton_Click"/>
+                     QuerySubmitted="SearchAutoSuggestBox_QuerySubmitted"
+                     QueryIcon="Find"/>
         </StackPanel>
 
         <Grid Grid.Row="2">
@@ -38,18 +34,31 @@
                       IsItemClickEnabled="True">
                 <GridView.ItemTemplate>
                     <DataTemplate x:DataType="local:YunRes">
-                        <StackPanel Margin="20"
-                                    Height="150">
+                        <StackPanel Margin="8"
+                                    Height="230"
+                                    Width="190"
+                                    BorderBrush="Azure"
+                                    BorderThickness="1"
+                                    Padding="2">
                             <TextBlock Text="{x:Bind title}"
-                                       FontSize="20"
-                                       TextWrapping="Wrap"/>
-                            <TextBlock Text="{x:Bind time}"/>
-                            <TextBlock Text="{x:Bind format}"/>
-                            <TextBlock Text="{x:Bind size}"/>
+                                       FontSize="18"
+                                       TextWrapping="Wrap"
+                                       />
+                            <TextBlock Text="{x:Bind path}" FontSize="12" TextWrapping="Wrap" Margin="0,5,0,0"/>
+                            <TextBlock Text="{x:Bind time}" FontSize="12" Margin="0,5,0,0"/>
+                            <TextBlock Text="{x:Bind format}" FontSize="12" Margin="0,5,0,0"/>
+                            <TextBlock Text="{x:Bind size}" FontSize="12" Margin="0,5,0,0"/>
                         </StackPanel>
                     </DataTemplate>
                 </GridView.ItemTemplate>
             </GridView>
         </Grid>
+        
+        <controls:Loading x:Name="LoadingControl" HorizontalContentAlignment="Center" 
+                          VerticalContentAlignment="Center"
+                          Background="Black" Opacity="0.7"
+                          Grid.RowSpan="2">
+            <ContentControl x:Name="LoadingContentControl"/>
+        </controls:Loading>
     </Grid>
 </Page>

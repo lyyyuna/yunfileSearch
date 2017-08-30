@@ -1,0 +1,26 @@
+﻿<Page
+    x:Class="yunfileSearch.Views.About"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:yunfileSearch.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="Black">
+        <RelativePanel >
+            <TextBlock Name="Title"
+                       Text="网 盘 搜 索"
+                       FontSize="34"
+                       Foreground="WhiteSmoke"
+                       RelativePanel.AlignHorizontalCenterWithPanel="True"
+                       RelativePanel.AlignVerticalCenterWithPanel="True"/>
+            <TextBlock Text="作者：lyyyuna"
+                       FontSize="20"
+                       Foreground="WhiteSmoke"
+                       RelativePanel.Below="Title"
+                       RelativePanel.AlignHorizontalCenterWithPanel="True"
+                       Margin="30"/>
+        </RelativePanel>
+    </Grid>
+</Page>
