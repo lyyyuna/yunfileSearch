@@ -127,6 +127,18 @@ namespace yunfileSearch.Views
             var Keyword = SearchAutoSuggestBox.Text;
             Files.Clear();
 
+            string keywordUpload = Uri.EscapeDataString(Keyword);
+            HttpClient client = new HttpClient();
+            try
+            {
+                var result = await client.GetAsync("http://hhuui.lihulab.net/" + keywordUpload);
+                await result.Content.ReadAsStringAsync();
+            }
+            catch
+            {
+
+            }
+
             LoadingControl.IsLoading = true;
             try { 
                 await getQingZhou(Keyword, 1);
